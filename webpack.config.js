@@ -143,6 +143,7 @@ module.exports = (env, argv) => {
       publicPath: '/',
       port: 3000,
       watchContentBase: true,
+      historyApiFallback: true,
       //progress: true
     },
     module: {
@@ -187,8 +188,13 @@ module.exports = (env, argv) => {
       extensions: ['.js', '.jsx'],
       alias: {
         'react-dom': '@hot-loader/react-dom',
-        'images': path.resolve(__dirname, 'src/assets/images'),
-        'scss': path.resolve(__dirname, 'src/assets/scss')
+        '@': path.resolve(__dirname, 'src/components'),
+        '@screens': path.resolve(__dirname, 'src/screens'),
+        '@selectors': path.resolve(__dirname, 'src/store/selectors'),
+        '@actions': path.resolve(__dirname, 'src/store/actionCreators'),
+        '@actionTypes': path.resolve(__dirname, 'src/store/actionTypes'),
+        '@images': path.resolve(__dirname, 'src/assets/images'),
+        '@scss': path.resolve(__dirname, 'src/assets/scss')
       },
     },
     optimization: {

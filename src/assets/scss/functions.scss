@@ -1,0 +1,21 @@
+@function str-replace($string, $search, $replace: '') {
+  $replacedIndex: str-index($string, $search);
+  
+  @if $replacedIndex {
+    @return str-slice($string, 1, $replacedIndex - 1) + $replace + str-replace(str-slice($string, $replacedIndex + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+@function createUrlForGoogleFonts($fonts...) {
+  $query: '';
+  @each $font in $fonts {
+      @if index($fonts, $font) == 1 {
+          $query: $query + str-replace($font, ' ', '+' );
+      } @else {
+          $query: $query + "|" + str-replace($font, ' ', '+' );
+      }
+  }
+  @return "url('https://fonts.googleapis.com/css?family=#{$query}&display=swap')"
+}
