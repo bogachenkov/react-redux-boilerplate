@@ -129,7 +129,7 @@ module.exports = (env, argv) => {
   }
 
   const config = {
-    entry: ['react-hot-loader/patch', './src/index.js'],
+    entry: ['@babel/polyfill', './src/index.js'],
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'static/js/[name].[contenthash:8].js',
@@ -144,7 +144,7 @@ module.exports = (env, argv) => {
       port: 3000,
       watchContentBase: true,
       historyApiFallback: true,
-      //progress: true
+      clientLogLevel: "warn",
     },
     module: {
       rules: [
@@ -187,9 +187,9 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
-        'react-dom': '@hot-loader/react-dom',
         '@': path.resolve(__dirname, 'src/components'),
         '@screens': path.resolve(__dirname, 'src/screens'),
+        '@hooks': path.resolve(__dirname, 'src/hooks'),
         '@selectors': path.resolve(__dirname, 'src/store/selectors'),
         '@actions': path.resolve(__dirname, 'src/store/actionCreators'),
         '@actionTypes': path.resolve(__dirname, 'src/store/actionTypes'),
