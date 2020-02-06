@@ -129,7 +129,8 @@ module.exports = (env, argv) => {
   }
 
   const config = {
-    entry: ['@babel/polyfill', './src/index.js'],
+    entry: ['@babel/polyfill', './src/index.tsx'],
+    devtool: 'inline-source-map',
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'static/js/[name].[contenthash:8].js',
@@ -149,7 +150,7 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader"
@@ -185,7 +186,7 @@ module.exports = (env, argv) => {
     },
     plugins: usePlugins(),
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
       alias: {
         '@': path.resolve(__dirname, 'src/components'),
         '@screens': path.resolve(__dirname, 'src/screens'),

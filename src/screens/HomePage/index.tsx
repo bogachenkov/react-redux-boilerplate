@@ -1,7 +1,7 @@
 import React from 'react';
 import Greeting from '@/Greetings';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return <Greeting />
 };
 

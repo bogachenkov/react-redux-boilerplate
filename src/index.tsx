@@ -9,7 +9,7 @@ import 'normalize.css';
 
 import Router from '@screens/Router';
 
-const App = props => (
+const App: React.FC = () => (
   <BrowserRouter>
     <Router />
   </BrowserRouter>

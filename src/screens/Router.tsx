@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import HomePage from './HomePage';
 
-const Router = () => {
+const Router: React.FC = () => {
   return (
     <Switch>
       <Route path="/" component={HomePage} />

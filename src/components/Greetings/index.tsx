@@ -3,9 +3,9 @@ import './Greetings.scss';
 
 import useRouter from '@hooks/useRouter';
 
-import logo from '@images/logo.svg';
+//import * as logo from '@images/logo.svg';
 
-const Greetings = () => {
+const Greetings: React.FC = () => {
   const router = useRouter();
   useEffect(() => {
     console.log('Router Location:', router.location);
@@ -13,7 +13,6 @@ const Greetings = () => {
   return (
     <div className="Greetings">
       <h1>A minimal boilerplate for React, Redux and SCSS</h1>
-      <img src={logo} alt=""/>
     </div>
   );
 };
